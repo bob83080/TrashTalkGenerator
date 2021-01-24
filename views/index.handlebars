@@ -1,5 +1,6 @@
-<div class="container py-3">
+{{!-- <div class="container py-3">
   <div class="row justify-content-around">
+
 
 
     <div class="d-flex flex-column align-items-center ">
@@ -39,8 +40,52 @@
     <button class="btn btn-success px-2 align-items-center" type="submit"
       style="height:50px; margin-top:auto; margin-bottom:auto; margin-right:5px">產生幹話</button>
     <textarea placeholder="不知道要說什麼？？？ " readonly class="col-sm-10 px-2 rounded"
-      style="height:100px; font-size:18px;"></textarea>
+      style="height:100px; font-size:18px;">{{TrashTalk}}</textarea>
 
   </div>
+
+</div> --}}
+
+<div class="container py-3">
+
+  {{!-- form --}}
+
+  <form method="POST" action="/">
+
+    <div class="row justify-content-around">
+      {{#each position}}
+      <div class="d-flex flex-column align-items-center ">
+        <img src="{{this.avatar}}" class="img-fluid rounded mb-2" style="width: 320px; height: 250px;"
+          alt="{{this.title}}">
+        <div class="form-check">
+          <label class="form-check-label" style="color: white;">
+            <input class="form-check-input " type="radio" name="job" value="{{this.job}}">
+            {{this.title}}
+          </label>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    {{!-- text box --}}
+    <div class="row justify-content-center py-3">
+      <button class="btn btn-success px-2 align-items-center" type="submit"
+        style="height:50px; margin-top:auto; margin-bottom:auto; margin-right:5px">產生幹話</button>
+      <textarea placeholder="不知道要說什麼？？？ " readonly class="col-sm-10 px-2 rounded"
+        style="height:100px; font-size:18px;">{{#if rubbishtalk}}{{rubbishtalk}}{{/if}}</textarea>
+
+    </div>
+
+    {{!-- <div class="row  d-flex justify-content-center">
+      <div class="col-sm-2 align-self-center d-flex justify-content-center ">
+        <button class="btn btn-dark  " style="font-size:20px;" type="submit">幹話開講</button>
+      </div>
+
+      <textarea placeholder="想不到要說什麼？讓我來幫你..." readonly class="col-sm-10  rounded"
+        style="height: 100px; width:60%;font-size:28px;">{{#if rubbishtalk}}{{rubbishtalk}}{{/if}}</textarea>
+
+    </div> --}}
+
+  </form>
 
 </div>
